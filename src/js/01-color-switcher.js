@@ -19,12 +19,14 @@ function getRandomHexColor() {
 
 
   startBtn.addEventListener("click", () => {
-    startBtn.disabled = true;
-    stopBtn.disabled = false;
-    timerId = setInterval(() => {
-        const color = getRandomHexColor();
-        bodyEl.style.backgroundColor  = color;
-    }, 1000);
+      timerId = setInterval(() => {
+          const color = getRandomHexColor();
+          bodyEl.style.backgroundColor  = color;
+        }, 1000);
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+        
+
   });
 
 
