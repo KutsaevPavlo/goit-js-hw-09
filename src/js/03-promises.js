@@ -1,7 +1,11 @@
 
 import Notiflix from 'notiflix';
 const delayInput = document.querySelector('.form');
-const promiseButton = document.querySelector('button');
+const form = document.querySelector('.form');
+
+
+
+
 const obj = {};
 
 delayInput.addEventListener("input", inputObj);
@@ -9,7 +13,7 @@ function inputObj(event) {
   obj[event.target.name] = event.target.value;
 };
 
-promiseButton.addEventListener("click", formHandler);
+form.addEventListener("submit", formHandler);
 
 function formHandler(event) {
   event.preventDefault();
@@ -22,7 +26,7 @@ function formHandler(event) {
           Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay + (position - 1) * step}ms`);
         });
     }
-  }
+  }   
 }
 
 function createPromise(position, delay, step) {
