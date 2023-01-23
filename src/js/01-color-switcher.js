@@ -17,21 +17,30 @@ function getRandomHexColor() {
   }
 
 
+function btnStarStop(startStatus, stopStatus){
+  startBtn.disabled = startStatus;
+  stopBtn.disabled = stopStatus;
+}
+
+
 
   startBtn.addEventListener("click", () => {
       timerId = setInterval(() => {
           const color = getRandomHexColor();
           bodyEl.style.backgroundColor  = color;
         }, 1000);
-        startBtn.disabled = true;
-        stopBtn.disabled = false;
+
+        btnStarStop(true, false);
+        // startBtn.disabled = true;
+        // stopBtn.disabled = false;
         
 
   });
 
 
   stopBtn.addEventListener("click", () => {
-    startBtn.disabled = false;
-    stopBtn.disabled = true;
+    btnStarStop(false, true);
+    // startBtn.disabled = false;
+    // stopBtn.disabled = true;
     clearInterval(timerId);
   });
