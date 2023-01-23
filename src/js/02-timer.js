@@ -7,7 +7,7 @@ const inputDays = document.querySelector('[data-days]')
 const inputHour = document.querySelector('[data-hours]')
 const inputMinute = document.querySelector('[data-minutes]')
 const inputSeconds = document.querySelector('[data-seconds]')
-const date = new Date();
+// const date = new Date();
 
 let timerId = null;
 let timerMs = null;
@@ -19,25 +19,24 @@ const options = {
     time_24hr: true,
     defaultDate: new Date(),
     minuteIncrement: 1,
-    onClose(selectedDates) {
-          if (selectedDates[0] <= date) {
+    onClose([selectedDates]) {
+          if ([selectedDates] <= Date.now()) {
           window.alert("Please choose a date in the future");
           startBtn.disabled = true;
           return;
         }
       else {
         startBtn.disabled = false;
-        timerMs = selectedDates[0].getTime() - date.getTime();
       }
-        },
-    };
-
-flatpickr("#datetime-picker", options);
-
-
-
-
-
+    },
+  };
+  
+  flatpickr("#datetime-picker", options);
+  
+  
+  
+  
+  
 function convertMs(ms) {
     // Number of milliseconds per unit of time
     const second = 1000;
@@ -56,9 +55,9 @@ function convertMs(ms) {
     
     addLeadingZero({ days, hours, minutes, seconds }); 
     return { days, hours, minutes, seconds };
-}
-
-function addLeadingZero(value) {
+  }
+  
+  function addLeadingZero(value) {
     const timerParam = Object.values(value);
     const timerParamToString = timerParam.map(timerParam => timerParam.toString().padStart(2, '0'));
     inputDays.innerHTML = timerParamToString[0];
@@ -66,17 +65,19 @@ function addLeadingZero(value) {
     inputMinute.innerHTML = timerParamToString[2];
     inputSeconds.innerHTML = timerParamToString[3];
   }
-
-
-startBtn.addEventListener("click", () => {
+  
+  
+  startBtn.addEventListener("click", () => {
     timerId = setInterval(() => {
-        
-        timerMs = timerMs - 1000;
-        convertMs(timerMs);
-        console.log(convertMs(timerMs)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
+      
+      timerMs = [selectedDates].getTime() - Date.now().getTime();
+      timerMs = timerMs - 1000;
+      convertMs(timerMs);
+      console.log(convertMs(timerMs)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
              
-        }, 1000);
-          startBtn.disabled = true;
-    });
-    
-
+    }, 1000);
+    startBtn.disabled = true;
+  });
+  
+  
+  
