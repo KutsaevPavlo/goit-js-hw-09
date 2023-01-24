@@ -27,7 +27,7 @@ const options = {
     }
     else {
       startBtn.disabled = false;
-      selectedData = selectedDates[0];
+      const selectedData = selectedDates[0];
     }
   },
 };
