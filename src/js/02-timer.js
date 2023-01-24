@@ -12,6 +12,7 @@ const inputEl = document.querySelector('input');
 
 let timerCountdown = 0;
 let timerMs = null;
+let timerId = null;
 
 startBtn.disabled = true;
 
