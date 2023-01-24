@@ -19,15 +19,15 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  onClose([selectedDates]) {
-    if (selectedDates <= Date.now()) {
+  onClose(selectedDates) {
+    if (selectedDates[0] <= Date.now()) {
       window.alert("Please choose a date in the future");
       startBtn.disabled = true;
       return;
     }
     else {
       startBtn.disabled = false;
-      selectedData = selectedDates;
+      selectedData = selectedDates[0];
     }
   },
 };
@@ -101,4 +101,6 @@ function addLeadingZero(value) {
   });
   
   
-  
+ 
+
+    
