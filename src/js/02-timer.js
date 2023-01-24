@@ -25,9 +25,9 @@ const options = {
       startBtn.disabled = true;
       return;
     }
-    else {
+    else {  
       startBtn.disabled = false;
-      timerCountdown = selectedDates.getTime();
+      return timerCountdown = selectedDates.getTime();
       }
   },
 };
