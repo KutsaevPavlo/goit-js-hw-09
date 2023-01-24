@@ -19,16 +19,16 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  onClose(selectedDates) {
-    if (selectedDates[0] <= Date.now()) {
+  onClose([selectedDates]) {
+    if (selectedDates <= Date.now()) {
       window.alert("Please choose a date in the future");
       startBtn.disabled = true;
       return;
     }
     else {
       startBtn.disabled = false;
-      const selectedData = selectedDates[0];
-    }
+      timerCountdown = selectedDates.getTime();
+      }
   },
 };
 
@@ -86,7 +86,7 @@ function addLeadingZero(value) {
   startBtn.addEventListener("click", () => {
     timerId = setInterval(() => {
       
-      timerMs = selectedData.getTime() - Date.now();
+      timerMs = timerCountdown - Date.now();
       timerMs = timerMs - 1000;
       // convertMs(timerMs);
       // console.log(convertMs(timerMs)); // {days: 0, hours: 0, minutes: 0, seconds: 2}

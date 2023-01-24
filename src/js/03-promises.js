@@ -1,4 +1,3 @@
-
 import Notiflix from 'notiflix';
 // const delayInput = document.querySelector('.form');
 const form = document.querySelector('.form');
