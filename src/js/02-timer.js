@@ -9,7 +9,7 @@ const inputMinute = document.querySelector('[data-minutes]')
 const inputSeconds = document.querySelector('[data-seconds]')
 // const date = new Date();
 
-let timerId = null;
+let timerCountdown = 0;
 let timerMs = null;
 
 startBtn.disabled = true;
