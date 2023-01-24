@@ -7,6 +7,7 @@ const inputDays = document.querySelector('[data-days]')
 const inputHour = document.querySelector('[data-hours]')
 const inputMinute = document.querySelector('[data-minutes]')
 const inputSeconds = document.querySelector('[data-seconds]')
+const inputEl = document.querySelector('input');
 // const date = new Date();
 
 let timerCountdown = 0;
@@ -27,12 +28,12 @@ const options = {
     }
     else {  
       startBtn.disabled = false;
-      timerCountdown = selectedDates.getTime();
+      // timerCountdown = selectedDates.getTime();
 
 
       startBtn.addEventListener("click", () => {
         timerId = setInterval(() => {
-          
+          timerCountdown = new Date(inputEl.value);
           timerMs = timerCountdown - Date.now();
           timerMs = timerMs - 1000;
           // convertMs(timerMs);
