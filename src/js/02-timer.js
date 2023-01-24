@@ -27,7 +27,34 @@ const options = {
     }
     else {  
       startBtn.disabled = false;
-      return timerCountdown = selectedDates.getTime();
+      timerCountdown = selectedDates.getTime();
+
+
+      startBtn.addEventListener("click", () => {
+        timerId = setInterval(() => {
+          
+          timerMs = timerCountdown - Date.now();
+          timerMs = timerMs - 1000;
+          // convertMs(timerMs);
+          // console.log(convertMs(timerMs)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
+          const convertMsTimerMs = convertMs(timerMs);
+          console.log(convertMsTimerMs);
+          addLeadingZero(convertMsTimerMs); 
+          // console.log(addLeadingZero(convertMs(timerMs))); // {days: 0, hours: 0, minutes: 0, seconds: 2}
+          
+        }, 1000);
+        startBtn.disabled = true;
+        
+      });
+
+
+
+
+
+
+
+
+
       }
   },
 };
@@ -83,22 +110,22 @@ function addLeadingZero(value) {
 
 
 
-  startBtn.addEventListener("click", () => {
-    timerId = setInterval(() => {
+  // startBtn.addEventListener("click", () => {
+  //   timerId = setInterval(() => {
       
-      timerMs = timerCountdown - Date.now();
-      timerMs = timerMs - 1000;
-      // convertMs(timerMs);
-      // console.log(convertMs(timerMs)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
-      const convertMsTimerMs = convertMs(timerMs);
-      console.log(convertMsTimerMs);
-      addLeadingZero(convertMsTimerMs); 
-      // console.log(addLeadingZero(convertMs(timerMs))); // {days: 0, hours: 0, minutes: 0, seconds: 2}
+  //     timerMs = timerCountdown - Date.now();
+  //     timerMs = timerMs - 1000;
+  //     // convertMs(timerMs);
+  //     // console.log(convertMs(timerMs)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
+  //     const convertMsTimerMs = convertMs(timerMs);
+  //     console.log(convertMsTimerMs);
+  //     addLeadingZero(convertMsTimerMs); 
+  //     // console.log(addLeadingZero(convertMs(timerMs))); // {days: 0, hours: 0, minutes: 0, seconds: 2}
       
-    }, 1000);
-    startBtn.disabled = true;
+  //   }, 1000);
+  //   startBtn.disabled = true;
     
-  });
+  // });
   
   
  
