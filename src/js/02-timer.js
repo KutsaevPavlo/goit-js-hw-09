@@ -97,7 +97,7 @@ function addLeadingZero(value) {
       
     }, 1000);
     startBtn.disabled = true;
-    // console.log(selectedData.getTime());
+    
   });
   
   
